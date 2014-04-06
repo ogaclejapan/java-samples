@@ -12,6 +12,42 @@ import static java.util.stream.Collectors.*;
 
 public class CollectionsTest {
 
+    static class Person {
+
+        private String name;
+        private int age;
+
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
+        }
+
+    }
+
     List<Person> people;
 
     @Before
@@ -25,6 +61,7 @@ public class CollectionsTest {
 
     }
 
+    // 年齢の昇順にリストを並び替えて表示する
     @Test
     public void testSorted() throws Exception {
 
@@ -32,6 +69,7 @@ public class CollectionsTest {
 
     }
 
+    // 名前だけを抽出したリストに変換して表示する
     @Test
     public void testMap() throws Exception {
 
@@ -40,6 +78,7 @@ public class CollectionsTest {
 
     }
 
+    // 名前と年齢を交互に格納したリストに変換して表示する
     @Test
     public void testFlatMap() throws Exception {
 
@@ -48,6 +87,7 @@ public class CollectionsTest {
 
     }
 
+    // 年齢をキーにグループ化した名前リストのMap<Integer, List<String>>型に変換して表示する
     @Test
     public void testGroupBy() throws Exception {
 
@@ -58,6 +98,7 @@ public class CollectionsTest {
 
     }
 
+    // 年齢が22歳より上の人を抽出して表示する
     @Test
     public void testFilter() throws Exception {
 
@@ -65,6 +106,7 @@ public class CollectionsTest {
 
     }
 
+    // リスト先頭から2名分の人を抽出して表示する
     @Test
     public void testLimit() throws Exception {
 
@@ -72,6 +114,7 @@ public class CollectionsTest {
 
     }
 
+    // リスト先頭から2名分の人を除いて表示する
     @Test
     public void testSkip() throws Exception {
 
@@ -79,6 +122,7 @@ public class CollectionsTest {
 
     }
 
+    // 年齢のリストに変換して、重複を除いた年齢を表示する
     @Test
     public void testDistinct() throws Exception {
 
@@ -86,6 +130,7 @@ public class CollectionsTest {
 
     }
 
+    // 全員の年齢が19歳より上かどうかを判定する
     @Test
     public void testAllMatch() throws Exception {
 
@@ -95,6 +140,7 @@ public class CollectionsTest {
 
     }
 
+    // 30歳以上の人が存在するかを判定する
     @Test
     public void testAnyMatch() throws Exception {
 
@@ -103,4 +149,5 @@ public class CollectionsTest {
         }
 
     }
+
 }
